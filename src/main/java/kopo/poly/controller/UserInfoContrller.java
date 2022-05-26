@@ -106,11 +106,11 @@ public class UserInfoContrller {
     /**
      * 로그인을 위해 입력 화면으로 이동
      */
-    @RequestMapping(value="user/loginForm")
+    @RequestMapping(value="user/login")
     public String loginForm(){
-        log.info(this.getClass().getName() + ".user/loginForm ok!");
+        log.info(this.getClass().getName() + ".user/login ok!");
 
-        return "/user/loginForm";
+        return "/user/login";
     }
 
 
