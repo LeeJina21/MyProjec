@@ -111,23 +111,23 @@ function calBytes(str){
 			<td align="center">제목</td>
 			<td>
 			<input type="text" name="title" maxlength="100" 
-				   value="<%=CmmUtil.nvl(rDTO.getTitle()) %>" style="width: 450px"/>
+				   value="<%=CmmUtil.nvl(rDTO.getPost_title()) %>" style="width: 450px"/>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">공지글 여부</td>
 			<td>
 				예<input type="radio" name="noticeYn" value="1"
-						<%=CmmUtil.checked(CmmUtil.nvl(rDTO.getNotice_yn()), "1") %>	/>
+						<%=CmmUtil.checked(CmmUtil.nvl(rDTO.getPost_yn()), "1") %>	/>
 			        아니오<input type="radio" name="noticeYn" value="2" 
-			        	<%=CmmUtil.checked(CmmUtil.nvl(rDTO.getNotice_yn()), "2") %>	/>
+			        	<%=CmmUtil.checked(CmmUtil.nvl(rDTO.getPost_yn()), "2") %>	/>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<textarea 
 						name="contents" style="width: 550px; height: 400px"
-						><%=CmmUtil.nvl(rDTO.getContents()) %></textarea>
+						><%=CmmUtil.nvl(rDTO.getPost_contents()) %></textarea>
 			</td>
 		</tr>
 	<tr>

@@ -109,9 +109,9 @@ public class NoticeController {
              * 게시판 글 등록되기 위해 사용되는 form객체의 하위 input 객체 등을 받아오기 위해 사용함
              */
             String user_id = CmmUtil.nvl((String) session.getAttribute("SESSION_USER_ID"));
-            String title = CmmUtil.nvl(request.getParameter("title")); // 제목
-            String noticeYn = CmmUtil.nvl(request.getParameter("noticeYn")); // 공지글 여부
-            String contents = CmmUtil.nvl(request.getParameter("contents")); // 내용
+            String post_title = CmmUtil.nvl(request.getParameter("post_title")); // 제목
+            String post_yn = CmmUtil.nvl(request.getParameter("post_yn")); // 공지글 여부
+            String post_contents = CmmUtil.nvl(request.getParameter("post_contents")); // 내용
 
             /*
              * ####################################################################################
@@ -119,16 +119,16 @@ public class NoticeController {
              * ####################################################################################
              */
             log.info("user_id : " + user_id);
-            log.info("title : " + title);
-            log.info("noticeYn : " + noticeYn);
-            log.info("contents : " + contents);
+            log.info("title : " + post_title);
+            log.info("post_yn : " + post_yn);
+            log.info("post_contents : " + post_contents);
 
             NoticeDTO pDTO = new NoticeDTO();
 
             pDTO.setUser_id(user_id);
-            pDTO.setTitle(title);
-            pDTO.setNotice_yn(noticeYn);
-            pDTO.setContents(contents);
+            pDTO.setPost_title(post_title);
+            pDTO.setPost_yn(post_yn);
+            pDTO.setPost_contents(post_contents);
 
             /*
              * 게시글 등록하기위한 비즈니스 로직을 호출
@@ -184,7 +184,7 @@ public class NoticeController {
              * 값 전달은 반드시 DTO 객체를 이용해서 처리함 전달 받은 값을 DTO 객체에 넣는다.
              */
             NoticeDTO pDTO = new NoticeDTO();
-            pDTO.setNotice_seq(nSeq);
+            pDTO.setPost_seq(nSeq);
 
             // 공지사항 상세정보 가져오기
             NoticeDTO rDTO = noticeService.getNoticeInfo(pDTO);
@@ -238,7 +238,7 @@ public class NoticeController {
 
             NoticeDTO pDTO = new NoticeDTO();
 
-            pDTO.setNotice_seq(nSeq);
+            pDTO.setPost_seq(nSeq);
 
             /*
              * ####################################################### 공지사항 수정정보 가져오기(상세보기
@@ -287,23 +287,23 @@ public class NoticeController {
 
             String user_id = CmmUtil.nvl((String) session.getAttribute("SESSION_USER_ID")); // 아이디
             String nSeq = CmmUtil.nvl(request.getParameter("nSeq")); // 글번호(PK)
-            String title = CmmUtil.nvl(request.getParameter("title")); // 제목
-            String noticeYn = CmmUtil.nvl(request.getParameter("noticeYn")); // 공지글 여부
-            String contents = CmmUtil.nvl(request.getParameter("contents")); // 내용
+            String post_title = CmmUtil.nvl(request.getParameter("post_title")); // 제목
+            String post_yn = CmmUtil.nvl(request.getParameter("post_yn")); // 공지글 여부
+            String post_contents = CmmUtil.nvl(request.getParameter("post_contents")); // 내용
 
             log.info("user_id : " + user_id);
             log.info("nSeq : " + nSeq);
-            log.info("title : " + title);
-            log.info("noticeYn : " + noticeYn);
-            log.info("contents : " + contents);
+            log.info("post_ : " + post_title);
+            log.info("post_yn : " + post_yn);
+            log.info("post_contents : " + post_contents);
 
             NoticeDTO pDTO = new NoticeDTO();
 
             pDTO.setUser_id(user_id);
-            pDTO.setNotice_seq(nSeq);
-            pDTO.setTitle(title);
-            pDTO.setNotice_yn(noticeYn);
-            pDTO.setContents(contents);
+            pDTO.setPost_seq(nSeq);
+            pDTO.setPost_title(post_title);
+            pDTO.setPost_yn(post_yn);
+            pDTO.setPost_contents(post_contents);
 
             // 게시글 수정하기 DB
             noticeService.updateNoticeInfo(pDTO);
@@ -344,7 +344,7 @@ public class NoticeController {
 
             NoticeDTO pDTO = new NoticeDTO();
 
-            pDTO.setNotice_seq(nSeq);
+            pDTO.setPost_seq(nSeq);
 
             // 게시글 삭제하기 DB
             noticeService.deleteNoticeInfo(pDTO);

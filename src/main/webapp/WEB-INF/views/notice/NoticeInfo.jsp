@@ -40,7 +40,7 @@
         //수정하기
         function doEdit() {
             if ("<%=edit%>" == 2) {
-                location.href = "/notice/NoticeEditInfo?nSeq=<%=CmmUtil.nvl(rDTO.getNotice_seq())%>";
+                location.href = "/notice/NoticeEditInfo?nSeq=<%=CmmUtil.nvl(rDTO.getPost_seq())%>";
 
             } else if ("<%=edit%>" == 3) {
                 alert("로그인 하시길 바랍니다.");
@@ -56,7 +56,7 @@
         function doDelete() {
             if ("<%=edit%>" == 2) {
                 if (confirm("작성한 글을 삭제하시겠습니까?")) {
-                    location.href = "/notice/NoticeDelete?nSeq=<%=CmmUtil.nvl(rDTO.getNotice_seq())%>";
+                    location.href = "/notice/NoticeDelete?nSeq=<%=CmmUtil.nvl(rDTO.getPost_seq())%>";
 
                 }
 
@@ -85,15 +85,15 @@
     <col width="200px"/>
     <tr>
         <td align="center">제목</td>
-        <td colspan="3"><%=CmmUtil.nvl(rDTO.getTitle())%>
+        <td colspan="3"><%=CmmUtil.nvl(rDTO.getPost_title())%>
         </td>
     </tr>
     <tr>
         <td align="center">공지글 여부</td>
         <td colspan="3">예<input type="radio" name="noticeYn" value="1"
-                <%=CmmUtil.checked(CmmUtil.nvl(rDTO.getNotice_yn()), "1") %>/>
+                <%=CmmUtil.checked(CmmUtil.nvl(rDTO.getPost_yn()), "1") %>/>
             아니오<input type="radio" name="noticeYn" value="2"
-                    <%=CmmUtil.checked(CmmUtil.nvl(rDTO.getNotice_yn()), "2") %>/>
+                    <%=CmmUtil.checked(CmmUtil.nvl(rDTO.getPost_yn()), "2") %>/>
         </td>
     </tr>
     <tr>
@@ -101,12 +101,12 @@
         <td><%=CmmUtil.nvl(rDTO.getReg_dt())%>
         </td>
         <td align="center">조회수</td>
-        <td><%=CmmUtil.nvl(rDTO.getRead_cnt())%>
+        <td><%=CmmUtil.nvl(rDTO.getPost_cnt())%>
         </td>
     </tr>
     <tr>
         <td colspan="4" height="300px" valign="top">
-            <%=CmmUtil.nvl(rDTO.getContents()).replaceAll("\r\n", "<br/>") %>
+            <%=CmmUtil.nvl(rDTO.getPost_contents()).replaceAll("\r\n", "<br/>") %>
         </td>
     </tr>
     <tr>
