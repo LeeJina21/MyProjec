@@ -56,21 +56,21 @@
         <td align="center">
             <%
                 //공지글이라면, [공지]표시
-                if (CmmUtil.nvl(rDTO.getNotice_yn()).equals("1")) {
+                if (CmmUtil.nvl(rDTO.getPost_yn()).equals("1")) {
                     out.print("<b>[공지]</b>");
 
                     //공지글이 아니라면, 글번호 보여주기
                 } else {
-                    out.print(CmmUtil.nvl(rDTO.getNotice_seq()));
+                    out.print(CmmUtil.nvl(rDTO.getPost_seq()));
 
                 }
             %></td>
         <td align="center">
-            <a href="javascript:doDetail('<%=CmmUtil.nvl(rDTO.getNotice_seq())%>');">
-                <%=CmmUtil.nvl(rDTO.getTitle()) %>
+            <a href="javascript:doDetail('<%=CmmUtil.nvl(rDTO.getPost_seq())%>');">
+                <%=CmmUtil.nvl(rDTO.getPost_title()) %>
             </a>
         </td>
-        <td align="center"><%=CmmUtil.nvl(rDTO.getRead_cnt()) %>
+        <td align="center"><%=CmmUtil.nvl(rDTO.getPost_cnt()) %>
         </td>
         <td align="center"><%=CmmUtil.nvl(rDTO.getUser_name()) %>
         </td>
