@@ -18,7 +18,7 @@
         INSERT INTO NOTICE
         (
             POST_SEQ, POST_TITLE, POST_YN, POST_CONTENTS, USER_ID, POST_CNT,
-            REG_ID, REG_DT, CHG_ID, CHG_DT
+            REG_ID, REG_DT, UPD_ID, UPD_DT
         )
         VALUES(
                       (SELECT NULLIF (MAX(A.POST_SEQ),0)+1 FROM NOTICE A),
@@ -51,8 +51,8 @@
                           POST_TITLE = #{post_title},
                           POST_YN = #{post_yn},
                           POST_CONTENTS = #{post_contents},
-                          CHG_ID = #{user_id},
-                          CHG_DT = SYSDATE()
+                          UPD_ID = #{user_id},
+                          UPD_DT = SYSDATE()
         WHERE
             POST_SEQ = #{post_seq}
 
