@@ -61,10 +61,13 @@ public class NoticeController {
         // 공지사항 리스트 가져오기
         List<NoticeDTO> rList = noticeService.getNoticeList();
 
+        log.info("noticeService.getNoticeList() 여기는 C"+noticeService.getNoticeList());
         if (rList == null) {
             rList = new ArrayList<>();
 
         }
+        log.info("rList"+rList);
+
 
         // 조회된 리스트 결과값 넣어주기
         model.addAttribute("rList", rList);

@@ -4,10 +4,12 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="kopo.poly.dto.NoticeDTO" %>
 <%@ page import="kopo.poly.util.CmmUtil" %>
+
 <%
     session.setAttribute("SESSION_USER_ID", "USER01"); //세션 강제 적용, 로그인된 상태로 보여주기 위함
 
     List<NoticeDTO> rList = (List<NoticeDTO>) request.getAttribute("rList");
+    //로그인으로 가져올꺼면 파라미터로 수정
 
 //게시판 조회 결과 보여주기
     if (rList == null) {
@@ -35,6 +37,7 @@
 <hr/>
 <br/>
 
+
 <table border="1" width="600px">
     <tr>
         <td width="100" align="center">순번</td>
@@ -50,6 +53,7 @@
             if (rDTO == null) {
                 rDTO = new NoticeDTO();
             }
+
 
     %>
     <tr>
@@ -78,6 +82,7 @@
         </td>
     </tr>
     <%
+
         }
     %>
 </table>

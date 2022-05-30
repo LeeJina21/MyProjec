@@ -25,6 +25,7 @@ public class NoticeService implements INoticeService {
     public List<NoticeDTO> getNoticeList() throws Exception {
 
         log.info(this.getClass().getName() + ".getNoticeList start!");
+        log.info("noticeMapper.getNoticeList() 여기는 Service"+noticeMapper.getNoticeList());
 
         return noticeMapper.getNoticeList();
 
