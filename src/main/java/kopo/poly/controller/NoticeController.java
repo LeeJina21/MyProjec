@@ -19,7 +19,7 @@ import java.util.List;
 /*
  * Controller 선언해야만 Spring 프레임워크에서 Controller인지 인식 가능
  * 자바 서블릿 역할 수행
- *
+ * 
  * slf4j는 스프링 프레임워크에서 로그 처리하는 인터페이스 기술이며,
  * 로그처리 기술인 log4j와 logback과 인터페이스 역할 수행함
  * 스프링 프레임워크는 기본으로 logback을 채택해서 로그 처리함
@@ -29,6 +29,7 @@ import java.util.List;
 public class NoticeController {
 
     /*
+
      * 비즈니스 로직(중요 로직을 수행하기 위해 사용되는 서비스를 메모리에 적재(싱글톤패턴 적용됨)
      */
     @Resource(name = "NoticeService")
