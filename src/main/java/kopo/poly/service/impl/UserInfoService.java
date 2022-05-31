@@ -33,11 +33,11 @@ public class UserInfoService implements IUserInfoService {
         }
 
         //이메일로 중복된 값 확인
-        if(CmmUtil.nvl(rDTO.getUser_email()).equals("Y")){
+        if(CmmUtil.nvl(rDTO.getUser_id()).equals("Y")){
             res=2;
         }else{
             //회원가입
-            int success = userInfoMapper.InsertUserInfo(pDTO);
+            int success = userInfoMapper.insertUserInfo(pDTO);
 
             if(success >0){
                 res =1;
@@ -68,7 +68,7 @@ public class UserInfoService implements IUserInfoService {
          * 로그인 성공 여부 체크 시작
          */
         if (CmmUtil.nvl(rDTO.getUser_id()).length()>0){
-            res =1;
+            res = 1;
         }
         /**
          * 로그인 성공 여부 체크 끝

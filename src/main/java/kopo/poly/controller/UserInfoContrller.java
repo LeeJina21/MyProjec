@@ -53,12 +53,12 @@ public class UserInfoContrller {
             String user_id = CmmUtil.nvl(request.getParameter("user_id"));
             String user_name = CmmUtil.nvl(request.getParameter("user_name"));
             String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
-            String user_email = CmmUtil.nvl(request.getParameter("user_email"));
+            String user_age = CmmUtil.nvl(request.getParameter("user_age"));
 
-            log.info("user_id"+user_id);
-            log.info("user_name"+user_name);
-            log.info("user_pw"+user_pw);
-            log.info("user_email"+user_email);
+            log.info("user_id "+user_id);
+            log.info("user_name "+user_name);
+            log.info("user_pw "+user_pw);
+            log.info("user_age "+user_age);
 
             pDTO = new UserInfoDTO();
 
@@ -68,7 +68,7 @@ public class UserInfoContrller {
             //비밀번호 암호화
             pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
 
-            pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
+            //pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
 
             int res = userInfoService.inserUserInfo(pDTO);
 
@@ -132,8 +132,8 @@ public class UserInfoContrller {
             String user_id = CmmUtil.nvl(request.getParameter("User_id"));
             String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
 
-            log.info("user_id"+user_id);
-            log.info("user_pw"+user_pw);
+            log.info("user_id : "+user_id);
+            log.info("user_pw : "+user_pw);
 
             //웹에서 받는 정보를 저장할 변수를 메모리에 올리기
             pDTO = new UserInfoDTO();
@@ -148,20 +148,20 @@ public class UserInfoContrller {
 
             //로그인 성공
             if(res==1){
-                session.setAttribute("SS_USER_ID",user_id);
+                session.setAttribute("SS_USER_ID : ",user_id);
             }
         }catch(Exception e){
             //저장이 실패되면 사용자에게 보여줄 메시지
-            res=2;
+            res =2 ;
             log.info(e.toString());
             e.printStackTrace();
         }finally {
             log.info(this.getClass().getName() + ".insertUserInfo end");
-            model.addAttribute("res", String.valueOf(res));
+            model.addAttribute("res : ", String.valueOf(res));
 
             //변수 초기화
             pDTO = null;
         }
-        return  "/user/LoginResult";
+        return  "/user/loginResult";
     }
 }

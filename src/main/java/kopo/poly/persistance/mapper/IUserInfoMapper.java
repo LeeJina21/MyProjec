@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IUserInfoMapper {
     //회원가입
-    int InsertUserInfo(UserInfoDTO pDTO) throws Exception;
+    int insertUserInfo(UserInfoDTO pDTO) throws Exception;
     //회원가입 전 중복체크
     UserInfoDTO getUserExists(UserInfoDTO pDTO) throws Exception;
 

@@ -116,6 +116,20 @@
             <a href="javascript:doList();">[목록]</a>
         </td>
     </tr>
+
+</table>
+<br/>
+<table border="1">
+    <tr>
+        <td>댓글</td>
+        <td colspan="2"></td>
+    </tr>
+    <tr>
+        <td>댓글 등록</td>
+        <td>댓글 수정</td>
+        <td>댓글 삭제</td>
+    </tr>
+
 </table>
 </body>
 </html>
