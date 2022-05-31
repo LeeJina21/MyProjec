@@ -36,7 +36,8 @@
         <td colspan="3"><input type="password" name="user_pw"></td>
     </tr>
 </table>
+    <input type="submit" value="로그인"/>
 </form>
-<input type="submit" value="로그인"/>
+
 </body>
 </html>

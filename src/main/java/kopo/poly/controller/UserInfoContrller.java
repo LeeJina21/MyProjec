@@ -123,13 +123,13 @@ public class UserInfoContrller {
         log.info(this.getClass().getName() + ".getUserLoginCheck 시작");
 
         //로그인 처리 결과를 저장할 변수
-        int res =0;
+        int res  =0;
 
         //웹에서 받는 정보를 저장할 변수
         UserInfoDTO pDTO = null;
 
         try{
-            String user_id = CmmUtil.nvl(request.getParameter("User_id"));
+            String user_id = CmmUtil.nvl(request.getParameter("user_id"));
             String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
 
             log.info("user_id : "+user_id);
@@ -146,18 +146,23 @@ public class UserInfoContrller {
             //로그인을 위해 아이디와 비밀번호가 일치하는지 확인하기 위한 userInfoService 호출
             res = userInfoService.getUserLoginCheck(pDTO);
 
+            log.info("res:  " + res);
+
             //로그인 성공
             if(res==1){
-                session.setAttribute("SS_USER_ID : ",user_id);
+                log.info("로그인성공");
+                session.setAttribute("SS_USER_ID", user_id);
             }
         }catch(Exception e){
             //저장이 실패되면 사용자에게 보여줄 메시지
-            res =2 ;
+            res = 2 ;
             log.info(e.toString());
             e.printStackTrace();
         }finally {
-            log.info(this.getClass().getName() + ".insertUserInfo end");
+            log.info(this.getClass().getName() + ".insertUserInfo 끝");
             model.addAttribute("res : ", String.valueOf(res));
+
+            log.info("res!!!!!!!!!2 " + res);
 
             //변수 초기화
             pDTO = null;

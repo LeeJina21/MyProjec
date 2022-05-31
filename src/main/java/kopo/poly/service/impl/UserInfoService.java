@@ -52,6 +52,9 @@ public class UserInfoService implements IUserInfoService {
 
     /**
      * 로그인을 위해 아이디와 비밀번호가 일치하는지 확인
+     * @param pDTO
+     * @return
+     * @throws Exception
      */
     @Override
     public int getUserLoginCheck(UserInfoDTO pDTO) throws Exception{

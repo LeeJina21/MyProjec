@@ -16,9 +16,9 @@
 <%
     String msg ="";
 
-    if(res.equals("1")){
+    if(res.equals(1)){
         msg = SS_USER_ID + "님 로그인 완료";
-    }else if(res.equals("0")){
+    }else if(res.equals(0)){
         msg = "아이디, 비밀번호가 일치하지 않습니다";
     }else{
         msg = " 시스템 문제 발생. 잠시후 다시 시도해 주세요";
