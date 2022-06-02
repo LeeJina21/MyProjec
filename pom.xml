@@ -17,6 +17,13 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+        <!--자바 메일 발송 라이브러리-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+        </dependency>
+
         <!--웹소켓 채팅-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
