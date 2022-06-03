@@ -7,9 +7,15 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ChatController {
+
+    @GetMapping(value = "chatting")
+    public String Index() {
+        return "chatting.html";
+    }
 
     @MessageMapping("/chat.sendMessage")
     @SendTo("/topic/public")
