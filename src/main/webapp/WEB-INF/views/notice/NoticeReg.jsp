@@ -74,7 +74,7 @@ function calBytes(str){
 </head>
 <body onload="doOnload();">
 <form name="f" method="post" action="/notice/NoticeInsert" target= "ifrPrc" onsubmit="return doSubmit(this);">
-	<table border="1">
+	<table border="1"> <!--table 태그 쓰지 말것 폼테그 써라... div나...-->
 		<col width="100px" />
 		<col width="500px" />
 		<tr>
