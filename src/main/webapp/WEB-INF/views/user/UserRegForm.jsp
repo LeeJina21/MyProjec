@@ -27,6 +27,11 @@
             f.user_age.focus();
             return false;
         }
+        if(f.user_gender.value==""){
+            alert("성별을 입력하세요.");
+            f.user_gender.focus();
+            return false;
+        }
     }
 </script>
 </head>
@@ -53,7 +58,16 @@
         <tr>
             <td>나이</td>
             <td colspan="3"><input type="text" name="user_age"></td>
-        </tr>>
+        </tr>
+        <tr>
+            <td>성별</td>
+            <td colspan="3">
+                <input type="radio" id="user_gender" name="user_gender" value="man">
+                <label for="user_gender">남자</label>
+                <input type="radio" name="user_gender" value="woman">
+                <label for="user_gender">여자</label>
+            </td>
+        </tr>
     </table>
     <input type="submit" value="회원가입"/>
 </form>

@@ -54,16 +54,20 @@ public class UserInfoContrller {
             String user_name = CmmUtil.nvl(request.getParameter("user_name"));
             String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
             String user_age = CmmUtil.nvl(request.getParameter("user_age"));
+            String user_gender = CmmUtil.nvl(request.getParameter("user_gender"));
 
-            log.info("user_id "+user_id);
-            log.info("user_name "+user_name);
-            log.info("user_pw "+user_pw);
-            log.info("user_age "+user_age);
+            log.info("user_id "+ user_id);
+            log.info("user_name "+ user_name);
+            log.info("user_pw "+ user_pw);
+            log.info("user_age "+ user_age);
+            log.info("user_gender "+ user_gender);
 
             pDTO = new UserInfoDTO();
 
             pDTO.setUser_id(user_id);
             pDTO.setUser_name(user_name);
+            pDTO.setUser_age(user_age);
+            pDTO.setUser_gender(user_gender);
 
             //비밀번호 암호화
             pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
@@ -162,7 +166,7 @@ public class UserInfoContrller {
             log.info(this.getClass().getName() + ".insertUserInfo 끝");
             model.addAttribute("res : ", String.valueOf(res));
 
-            log.info("res!!!!!!!!!2 " + res);
+            log.info("res!!!!!!!!! " + res);
 
             //변수 초기화
             pDTO = null;
