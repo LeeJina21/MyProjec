@@ -58,6 +58,10 @@ public class UserInfoService implements IUserInfoService {
      */
     @Override
     public int getUserLoginCheck(UserInfoDTO pDTO) throws Exception{
+        if(pDTO == null){
+            pDTO = new UserInfoDTO();
+        }
+
         //로그인 성공 :1, 실패:0
         int res = 0;
 

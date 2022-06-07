@@ -143,9 +143,9 @@ public class UserInfoContrller {
             pDTO = new UserInfoDTO();
 
             pDTO.setUser_id(user_id);
-
-            //비밀번호는 절대로 복호화되지 않도록 해시 알고리즘으로 암호화함
             pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
+            log.info("user_id2 : "+user_id);
+            log.info("user_pw2 : "+user_pw);
 
             //로그인을 위해 아이디와 비밀번호가 일치하는지 확인하기 위한 userInfoService 호출
             res = userInfoService.getUserLoginCheck(pDTO);
@@ -155,7 +155,7 @@ public class UserInfoContrller {
             //로그인 성공
             if(res==1){
                 log.info("로그인성공");
-                session.setAttribute("SS_USER_ID", user_id);
+                session.setAttribute("user_id", user_id);
             }
         }catch(Exception e){
             //저장이 실패되면 사용자에게 보여줄 메시지
