@@ -6,7 +6,8 @@
 
 <update id="updataAller" parameterType="UserInfoDTO">
     UPDATE USER_IDFO
-        SET USER
+        SET USER_GENDER=#{user_gender}
+        WHERE USER_ID=#{user_id}
 </update>
 </mapper>
 

@@ -3,26 +3,31 @@
 <%@ page import="kopo.poly.util.CmmUtil" %>
 <%
     String user_id = CmmUtil.nvl((String)session.getAttribute("user_id"));
-    String res = CmmUtil.nvl((String)request.getAttribute("res"));
+    String res = CmmUtil.nvl((String)request.getAttribute("res"), "0");
 %>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>로그인 결과창</title>
-
-<%
-    String msg ="";
-
-    if(res.equals("1")){
-        msg = user_id + "님 로그인 완료";
-    }else{
-        msg = " 시스템 문제 발생. 잠시후 다시 시도해 주세요";
-    }
-%>
+    <title>Insert title here</title>
 </head>
 <body>
-<%=msg%>
+<%
+    if(res.equals("1")){
+%>
+<select>
+    alert('<%=user_id%>님 로그인 성공')
+    document.location.href="/index"
+</select>
+<%
+    }else{
+%>
+<select>
+    alert('로그인 실패')
+    document.location.href="/user/login"
+</select>
+<%
+    }
+%>
 </body>
 </html>

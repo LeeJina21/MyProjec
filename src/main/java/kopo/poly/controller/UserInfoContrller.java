@@ -103,7 +103,7 @@ public class UserInfoContrller {
 
         }
 
-        return "/user/Msg";
+        return "/alert/userAlert";
 
     }
 

@@ -2,14 +2,14 @@ package kopo.poly.service.impl;
 
 import kopo.poly.dto.UserInfoDTO;
 import kopo.poly.persistance.mapper.IMypageMapper;
+
 import kopo.poly.service.IMypageService;
-import kopo.poly.util.CmmUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service("MypageService")
-public class MypageService implements IMypageMapper{
+public class MypageService implements IMypageService {
 
     private final IMypageMapper MypageMapper;
 
@@ -18,7 +18,7 @@ public class MypageService implements IMypageMapper{
     }
 
     @Override
-    public static int updataAller(UserInfoDTO pDTO) throws Exception{
+    public int MyupdataAller(UserInfoDTO pDTO) throws Exception{
         int res =0;
 
         if(pDTO == null){
@@ -38,6 +38,7 @@ public class MypageService implements IMypageMapper{
 
         return res;
     }
+
 }
 
 
