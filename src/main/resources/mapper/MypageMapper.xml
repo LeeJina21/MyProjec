@@ -4,7 +4,7 @@
 <!-- JAVA와 연결할 Mapper 파일 설정 -->
 <mapper namespace="kopo.poly.persistance.mapper.IMypageMapper">
 
-<update id="" parameterType="">
+<update id="updataAller" parameterType="UserInfoDTO">
     UPDATE USER_IDFO
         SET USER
 </update>

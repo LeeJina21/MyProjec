@@ -17,9 +17,8 @@ public class MypageService implements IMypageMapper{
         this.MypageMapper = MypageMapper;
     }
 
-
     @Override
-    public int updataMYpage(UserInfoDTO pDTO) throws Exception{
+    public static int updataAller(UserInfoDTO pDTO) throws Exception{
         int res =0;
 
         if(pDTO == null){
@@ -27,7 +26,7 @@ public class MypageService implements IMypageMapper{
         }
 
         //수정
-        int success = MypageMapper.updataMYpage(pDTO);
+        int success = MypageMapper.updataAller(pDTO);
 
         if(success > 0){
             res = 1;
