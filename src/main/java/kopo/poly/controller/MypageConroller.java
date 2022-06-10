@@ -25,17 +25,17 @@ public class MypageConroller {
     private IMypageService mypageService;
 
     //마이페이지 보기
-    @RequestMapping(value = "mypage/mypage")
-    public String mypage(HttpSession session, ModelMap model){
-        ArrayList<String> rList = (ArrayList)session.getAttribute("MypageAllerList");
-        Collections.sort(rList);
-
-        HashMap<String, String> hm = new HashMap<>();
-
-        //수정봐야함
-
-        return "/mypage/mypage";
-    }
+//    @RequestMapping(value = "mypage/mypage")
+//    public String mypage(HttpSession session, ModelMap model){
+//        ArrayList<String> rList = (ArrayList)session.getAttribute("MypageAllerList");
+//        Collections.sort(rList);
+//
+//        HashMap<String, String> hm = new HashMap<>();
+//
+//        //수정봐야함
+//
+//        return "/mypage/mypage";
+//    }
 
     //로그아웃
     @RequestMapping(value = "mypage/logout")

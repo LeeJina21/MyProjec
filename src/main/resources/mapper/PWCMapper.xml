@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kopo.poly.persistance.mapper.IPWCMapper">
+    <select id="Search" parameterType="UserInfoDTO" resultType="UserInfoDTO">
+        SELECT * FROM USER_INFO
+        WHERE USER_ID = #{user_id}
+    </select>
+
+    <update id="New" parameterType="UserInfoDTO">
+        UPDATE USER_INFO
+        SET USER_PW = #{user_pw}
+        WHERE USER_ID = #{user_id}
+    </update>
+
+    <!--비밀번호 일치 확인-->
+    <select id="getPWExists" parameterType="UserInfoDTO" resultType="UserInfoDTO">
+        SELECT WHEN USER_PW=#{user_pwdck} THEN 'Y' ELSE 'N' END) AS EXISTS_YN
+        FROM USER_INFO
+        WHERE USER_ID=#{user_id}
+    </select>
+</mapper>
