@@ -4,7 +4,7 @@ import java.util.List;
 import kopo.poly.dto.UserInfoDTO;
 import org.apache.ibatis.annotations.Mapper;
 
-@Mapper("CommunityMapper")
+@Mapper
 public interface ICommunityMapper {
     void insertCommunity(UserInfoDTO uDTO) throws Exception;
     List<UserInfoDTO> getBoardList() throws Exception;

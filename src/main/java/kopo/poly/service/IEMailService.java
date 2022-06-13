@@ -4,5 +4,5 @@ import kopo.poly.dto.MailDTO;
 
 public interface IEMailService {
     //메일발송
-    int doSendEMail(MailDTO pDTO);
+    int doSendEMail(MailDTO pDTO) throws Exception;
 }

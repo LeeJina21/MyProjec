@@ -5,11 +5,7 @@ import kopo.poly.service.IEMailService;
 import kopo.poly.util.CmmUtil;
 import java.util.Properties;
 
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
@@ -21,11 +17,11 @@ import org.springframework.stereotype.Service;
 public class EMailService implements IEMailService {
 
     final String host = "smtp.gmail.com";                //제공하는 SMTP서버
-    final String user = "2120110030@gspace.kopo.ac.kr";  //아이디
-    final String password = "vhfflxpr7407!";             //비번
+    final String user = "shindaepal@gmail.com";  //아이디
+    final String password = "cxoyrwyfkuwuvhzy";             //비번
 
     @Override
-    public int doSendEMail(MailDTO pDTO){
+    public int doSendEMail(MailDTO pDTO) throws Exception{
         log.info(this.getClass().getName() + "doSendMail 시작");
 
         //메일 발송 성공여부 (성공:1 실패:0)
@@ -40,40 +36,47 @@ public class EMailService implements IEMailService {
         String toMail = CmmUtil.nvl(pDTO.getToMail());
 
         Properties props = new Properties();
-        props.put("mail.smtp.host", host); //jsvax 외부 라이브러리에 메일 보내는 사람의 정보 저장 설정
-        props.put("mail.smtp.auth", "true"); //javax 메일 보내는 사람 인증 설정
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", 587);
 
         //smtp서버 인증 처리 로직
-        Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator(){
-            protected PasswordAuthentication getPasswordAuthentication(){
+        Session session = Session.getDefaultInstance(props, new Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(user, password);
             }
         });
 
-        try{
+        try {
+
             MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(user));
+
+            // 메일 받는 사람
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(toMail));
+            log.info("메일 받는 사람 : " + toMail);
 
-            //메일 제목
+            // 메일 제목
             message.setSubject(CmmUtil.nvl(pDTO.getTitle()));
+            log.info("받아온 메일 제목 : " + pDTO.getTitle());
 
-            //메일 내용
+            // 메일 내용
             message.setText(CmmUtil.nvl(pDTO.getContents()));
+            log.info("받아온 메일 내용 : " + pDTO.getContents());
 
-            //메일 발송
+            // 메일 발송
             Transport.send(message);
 
-        }catch (MessagingException e){ // 메일 전송 에러 다 잡기
+        }catch(MessagingException e) {
             res = 0;
-            log.info("[ERROR] " + this.getClass().getName() + ".doSendMail : " + e);
-        } catch (Exception e){ //모든 에러 다 잡기
+            log.info("[ERROR]" + this.getClass().getName() + ".doSendMail : " + e);
+        }catch(Exception e) {
             res = 0;
-            log.info("[ERROR] " + this.getClass().getName() + ".doSendMail : " + e);
+            log.info("[ERROR]" + this.getClass().getName() + ".doSendMail : " + e);
         }
 
-        log.info(this.getClass().getName() + "doSendMail 끝");
-
+        log.info("CMailService : doSendmail(메일발송 서비스) 끝! ");
         return res;
     }
 }
